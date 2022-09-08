@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container,
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .buttons {
+            width: 10vw;
+            height: 10vh;
+            flex-direction: row;
+        }
+
+        button {
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            margin-left: 50px;
+            margin-right: 50px;
+            border: none;
+            background-color: rgb(255, 102, 128);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        button:hover {
+            background-color: rgb(155, 27, 49);
+        }
+
+        .no {
+            position: absolute;
+            right: -100px;
+        }
+
+        .yes {
+            position: absolute;
+            left: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quer namorar comigo</h1>
+        <div class="buttons">
+            <button class="yes">Sim 💖</button>
+            <button class="no">Não 💔</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        let cimaBaixo = '';
+        setInterval(() => {
+            cimaBaixo = '-';
+        }, 500);
+        setInterval(() => {
+            cimaBaixo = '';
+        }, 1000);
+        $('.no').mouseenter(function (e) {
+            let y = Math.round(Math.random() * 200);
+            let x = Math.round(Math.random() * 600);
+            $(e.target).css({ 'right': 'unset' })
+            $(e.target).css({ 'top': cimaBaixo + y + 'px', 'right': cimaBaixo + x + 'px' });
+        });
+    </script>
+</body>
+
+</html>
